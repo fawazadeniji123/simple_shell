@@ -1,11 +1,11 @@
 #include "shellLib.h"
 
 /**
- * env_get_key - retrieves the value of an environment variable by its key
- * @key: the key of the environment variable to retrieve
- * @data: a struct containing the program's data
- * Return: a pointer to the value of the variable, or NULL if it doesn't exist
- */
+* env_get_key - retrieves the value of an environment variable by its key
+* @key: the key of the environment variable to retrieve
+* @data: a struct containing the program's data
+* Return: a pointer to the value of the variable, or NULL if it doesn't exist
+*/
 char *env_get_key(char *key, program_data *data)
 {
 	int i, key_length = 0;
@@ -32,12 +32,14 @@ char *env_get_key(char *key, program_data *data)
 }
 
 /**
- * env_set_key - overwrites the value of an environment variable or creates it if it doesn't exist
- * @key: the key of the environment variable to set
- * @value: the new value of the variable
- * @data: a struct containing the program's data
- * Return: 1 if the parameters are NULL, 2 if there is an error, or 0 if successful
- */
+* env_set_key - overwrites the value of an environment variable
+* or creates it if it doesn't exist
+* @key: the key of the environment variable to set
+* @value: the new value of the variable
+* @data: a struct containing the program's data
+* Return: 1 if the parameters are NULL, 2 if there is an error,
+* or 0 if successful
+*/
 
 int env_set_key(char *key, char *value, program_data *data)
 {
@@ -68,18 +70,21 @@ int env_set_key(char *key, char *value, program_data *data)
 
 	if (is_new_key)
 	{
-		/* If the variable is new, create it at the end of the list and put NULL in the next position */
+		/*
+		* If the variable is new, create it at the end of the list and
+		* put NULL in the next position
+		*/
 		data->env[i + 1] = NULL;
 	}
 	return (0);
 }
 
 /**
- * env_remove_key - removes an environment variable by its key
- * @key: the key of the environment variable to remove
- * @data: a struct containing the program's data
- * Return: 1 if the variable was removed, 0 if it doesn't exist
- */
+* env_remove_key - removes an environment variable by its key
+* @key: the key of the environment variable to remove
+* @data: a struct containing the program's data
+* Return: 1 if the variable was removed, 0 if it doesn't exist
+*/
 int env_remove_key(char *key, program_data *data)
 {
 	int i, key_length = 0;
@@ -113,10 +118,10 @@ int env_remove_key(char *key, program_data *data)
 }
 
 /**
- * print_environ - prints the current environ
- * @data: struct for the program's data
- * Return: nothing
- */
+* print_environ - prints the current environ
+* @data: struct for the program's data
+* Return: nothing
+*/
 void print_environ(program_data *data)
 {
 	int j;
